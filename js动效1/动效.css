@@ -1,0 +1,115 @@
+*{  margin:0;padding:0;}
+#top{
+	float:right;
+	margin:20px 0 0 0;
+}
+#top a{
+	text-decoration:underline;
+    color:black;
+    margin-right:8px;
+}
+#top #more_p{
+	display:inline-block;
+	background:#38f;
+	text-decoration:none;
+	color:#fff;
+}
+
+}
+#index{
+	/*clear:both;*/
+
+}
+#wrap_img {
+    text-align:center;
+    clear:both;
+    padding-top:45px;
+
+}
+
+#index{text-align:center;margin:auto;font-size:0;}
+#index input{
+  display:inline-block;
+  width:550px;
+  height:36px;
+  vertical-align:middle; 
+  background-image:url(../../img/camera-o.png);
+  background-size:20px;
+  background-repeat: no-repeat;
+  background-position:514px;
+  border:2px solid #3e7ef3; 
+}
+#search{
+	background:#3e7ef3;
+	color:#fff;
+	font-size:15px;
+	display:inline-block;
+	height:40px;
+	width:100px;
+	text-align:center;
+	line-height: 36px;
+	vertical-align:middle;
+	text-align:center
+	border:1px solid #3e7ef3;
+
+}
+#login{
+	width:300px;
+	height:320px;
+	margin:10px auto;
+	border:1px solid #ccc;	
+	display:none;
+}
+.login_top{
+	height:40px;
+	line-height:40px;
+	/*background:#eee;*/
+	background:url(../../img/百度2.png);
+	background-repeat:no-repeat;
+	background-size:10%;
+	background-position:10px;
+	text-indent:20px;
+	background-color:#eee;
+
+}
+
+#login .same1{
+	display:inline-block;
+	height:36px;
+	margin:5px 3px;
+}
+#login .same2{
+	width:280px;
+	text-indent:40px;
+	border:1px solid #ccc;
+	margin:20px 5px 20px 5px;
+}
+#login .special_user{
+	background-image:url(../../img/user.png);
+	background-repeat:no-repeat;
+}
+#login .special_pwd{
+	background-image:url(../../img/lock-o.png);
+	background-repeat:no-repeat;
+
+}
+.button_l{
+	display:block;
+	border:none;
+	border-radius:5px;
+	height:36px;
+	width:290px;
+	margin:auto;
+	background:#3e7ef3;
+	color:#fff;
+}
+#login span{
+	display:inline-block;
+}
+#warn_txt{
+	border:1px solid orange;
+	background:orange;
+	font-style:italic;
+	display:none;
+}
+#skin{width:50px;height:25px;line-height: 25px ;font-size:16px;border:none;}

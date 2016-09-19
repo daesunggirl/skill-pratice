@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8" />
+		<title>时钟与延迟提示框</title>
+        <style>
+            #clock{font-size:62px;color:#aaa;}
+            #date{font-size:32px;color:rgb(6,4,72);}
+            img{width:32px;height:32px;}
+            #div1{background:rgb(6,4,72);width:50px;height:50px;float:left;}
+            #div2{background:rgb(188,89,213);width:100px;height:120px;float:left;display:none;}
+            #ul,#ul1{background:rgb(222,157,234);color:#fff;}
+        </style>
+	</head>
+	<body>
+	    <p id="date"></p>
+		<div id="clock">
+		<img src="../../num/0.png" alt="">
+		<img src="../../num/0.png" alt="">
+		:
+		<img src="../../num/0.png" alt="">
+		<img src="../../num/0.png" alt="">
+		:
+		<img src="../../num/0.png" alt="">
+		<img src="../../num/0.png" alt="">
+		</div>
+		<div>
+			<input type="button" id='btn' value='排序'/>
+			<ul id='ul'>
+				<li>33</li>
+				<li>12</li>
+				<li>5</li>
+				<li>65</li>
+				<li>21</li>
+			</ul>
+		</div>
+        <div id="div1">
+        	<span></span>
+        </div>
+        <div id="div2"></div>
+		<script>
+			window.onload=function(){
+				var btn=document.getElementById('btn');
+				var date=document.getElementById("date");
+				var sdate=new Date();
+				date.innerHTML=sdate.getFullYear()+"年"+(sdate.getMonth()+1)+"月"+sdate.getDate()+"日";
+				setInterval(clock,1000);
+				clock();
+				tips();
+				btn.onclick=sortLi;
+
+			}
+			function toDouble(n){
+				return (n<10)?'0'+n : ''+n;
+			}
+			function clock(){
+               var imgs=document.getElementsByTagName('img');
+               var date=new Date();
+               var str=toDouble(date.getHours())+toDouble(date.getMinutes())+toDouble(date.getSeconds());
+               for(var i=0;i<imgs.length;i++){
+               	imgs[i].src='../../num/'+str.charAt(i)+'.png';
+               }
+			}
+			function tips(){
+				var div1=document.getElementById('div1');
+				var div2=document.getElementById('div2');
+				var timer=null;
+				console.log('begin');
+				div1.onmouseover=div2.onmouseover=function(){
+					div2.style.display='block';
+					clearTimeout(timer);
+				}
+				console.log('ing');
+				div1.onmouseout=div2.onmouseout=function(){
+					//div2.style.display='none';
+					timer=setTimeout(function(){div2.style.display='none'},1000);
+				}
+               /* 上面是合并代码版
+               div2.onmouseover=function(){
+                	div2.style.display='block';
+                	clearTimeout(timer);
+                }
+				div2.onmouseout=function(){
+					timer=setTimeout(function(){div2.style.display='none'},2000);
+				}*/
+             console.log('end');
+			}
+			function sortLi(){
+				var arr=[];
+				var ul=document.getElementById('ul');
+				var lis=ul.getElementsByTagName('li');
+				for(var i=0;i<lis.length;i++){
+					arr[i]=lis[i]
+				}
+				arr.sort(function(a,b){var n1=parseInt(a.innerHTML);var n2=parseInt(b.innerHTML);return n1-n2;})
+				for(var j=0;j<arr.length;j++){
+					ul.appendChild(arr[j]);
+				}
+			}
+		</script>
+	</body>
+</html>

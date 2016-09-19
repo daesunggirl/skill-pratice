@@ -1,0 +1,11 @@
+#pic{
+	width:100px;
+	height:100px;
+	position:relative;
+	overflow: hidden;
+}
+a{
+	text-decoration: none;
+	font-size: 1.2em;
+}
+a:hover{font-weight:bold;}

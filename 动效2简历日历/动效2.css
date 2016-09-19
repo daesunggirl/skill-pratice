@@ -1,0 +1,26 @@
+*{padding:0;margin:0;}
+#calendar{width:300px;margin:50px auto;border:2px solid rgb(91,153,97);overflow:hidden;text-align: center;}
+ .title{font-weight:bolder;}
+ .cwrap{text-align: center;margin:0 auto;border:1px solid green;width:240px;}
+ .month{
+    width:60px;
+    height:60px;
+    line-height:60px;
+    font-size:18px;
+    font-weight:bold;
+    color:#000;
+    background:rgb(34,177,16);
+    border:1px solid rgb(255,255,0);
+    float:left;
+   margin:9px; 
+   
+}
+ .schedule{clear:both;background:#ccc;width:234px;margin:10px auto;text-align:left;}
+ .month:hover{
+	background:#fff;
+	color:green;
+}
+#form {width:600px;margin:0 20px;}
+#form li{height:40px;list-style:none;border:1px solid gray;margin:0 0 5px 0;line-height:40px;}
+.chk{display:none;}
+.same{display:none;}

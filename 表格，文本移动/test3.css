@@ -1,0 +1,17 @@
+table{
+	margin:auto;
+	border:1px solid green;
+	
+}
+caption{
+	font-weight: bold;
+	padding:2px;
+}
+th{
+	font-weight: normal;
+	font-style: italic;
+	text-align:center;
+	background-color: #9cc;
+	color:#000;
+}
+th,td{width:10em;}
