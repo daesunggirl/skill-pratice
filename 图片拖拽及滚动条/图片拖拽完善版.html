@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>图片拖曳(完善版)</title>
+		<style>
+		  *{margin:0;padding:0;}
+		  #wrap{width:660px;height:660px;background-color:rgba(135,67,67,0.5);padding:10px;position:relative;}
+		  #wrap div{width:200px;height:200px;position:absolute;background:rgb(195,153,85);padding:10px;}
+		</style>
+	</head>
+	<body>
+	    <div id='wrap'>
+	    	<p>我不管，姜胜允南韩第一可爱</p>
+		    <div id='block'>拖我呀，拖的动我的都是颜值top级别的</div>
+	    </div>
+		<script>
+			//兼容ie(缩减版)
+			//带框拖拽思路：点击生成一个div,社样式为border：x x x;mousemove绑定在div上，把拖拽元素宽高-2赋值给div，把div的位置给拖拽元素 。mouseup时要移除div
+			 window.onload=function(){
+				var range=document.getElementById('wrap');
+				var block=document.getElementById('block');
+				var d_x=0;
+				var d_y=0;
+				document.onmousedown=function(evt){
+					var e=evt||window.event;
+					var d_x=e.clientX-block.offsetLeft;//此处不能加px因为后面要进行计算
+					var d_y=e.clientY-block.offsetTop;//注意这里的clientX和clientY和下面的值并不一样
+					//console.log(d_x); 
+				   if(block.setCapture){                
+					   block.onmousemove=action;
+				       block.onmouseup=end;
+					block.setCapture();	//ff,chrome，拖曳时会被文字选中，所以取消默认行为
+				  }else{   
+					document.onmousemove=action;
+					document.onmouseup=end;
+				    }	
+				    return false;			
+				}
+				function action(evt){   
+                        var e=evt||window.event;
+						var left=e.clientX-d_x;
+						//console.log(left) 
+						var top=e.clientY-d_y;
+						var maxLeft=range.offsetWidth-block.offsetWidth;
+						var maxTop=range.offsetHeight-block.offsetHeight;
+						if(left<range.offsetLeft){
+							left=0;
+						}
+						if(left>maxLeft){
+							left=maxLeft;
+						}
+						if(top<range.offsetTop){
+							top=0;
+						}
+						if(top>maxTop){
+							top=maxTop;
+						}
+						block.style.left=left+'px';
+						block.style.top=top+'px';
+					}
+			   function end(){
+					   this.onmousemove=null;//改成this是关键，两种方法绑定的对象不一样
+					   this.onmouseuo=null;
+					   if(block.releaseCapture)
+					      block.releaseCapture();
+				    }	  					
+			}
+		</script>
+	</body>
+</html>

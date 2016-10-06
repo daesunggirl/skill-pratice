@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>图片轮播</title>
+		<style>
+     		*{padding:0px;margin:0px;}
+     		body{text-align:center;}
+     		#container{position:relative;width:520px;overflow:hidden;height:280px;margin:40px auto;}
+     		#play{width:2600px;position:absolute;}
+     		#play li{width:520px;height:280px;float:left;list-style:none;}
+     		#index{position:absolute;bottom:10px;width:520px;text-align:center;}
+     		#index li{display:inline-block;width:10px;height:10px;border:1px solid gray; border-radius:50%; -webkit-border-radius:50%;-moz-border-radius:50%;}
+     		.now{background:rgba(22,120,123,0.5);}
+		</style>
+	</head>
+	<body>
+	    <div id='container'>
+	    <ul id='play'>
+	    	<li><a href=""><img src="轮播1.jpg" alt="广告1"></a></li>
+	    	<li><a href=""><img src="轮播2.jpg" alt="广告2"></a></li>
+	    	<li><a href=""><img src="轮播3.jpg" alt="广告3"></a></li>
+	    	<li><a href=""><img src="轮播4.jpg" alt="广告4"></a></li>
+	    	<li><a href=""><img src="轮播5.jpg" alt="广告5"></a></li>
+	    </ul>
+	    <ul id='index'>
+	    	<li></li>
+	    	<li></li>
+	    	<li></li>
+	    	<li></li>
+	    	<li></li>
+	    </ul>
+	    </div>
+	    <script src='move.js'></script>
+		<script>
+			window.onload=function(){
+		     	var index=document.getElementById('index');
+		     	var lis=index.getElementsByTagName('li');
+		     	var play=document.getElementById('play');
+		     	var container=document.getElementById('container');
+		     	now=0;
+                for(var i=0;i<lis.length;i++){
+                	lis[i].tag=i;
+                	lis[i].onmouseover=function(){
+                	  now=this.tag;
+                	  tab();          	
+                  }
+              }
+              function tab(){
+		     	for(var i=0;i<lis.length;i++){
+		     		      lis[i].className='';
+		     	      }
+		     	      lis[now].className='now';
+		     	     move(play,{left:-520*now});
+                	}
+              function	next(){
+              	now++;
+              	if(now==lis.length){
+              		now=0;
+              	}
+              	tab();
+              }
+              var timer=setInterval(next,3000);
+              container.onmouseover=function(){
+              	clearInterval(timer);
+              };
+              container.onmouseout=function(){
+              	timer=setInterval(next,3000);
+              };
+		     }
+		</script>
+	</body>
+</html>

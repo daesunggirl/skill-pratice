@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>图片拖拽之滚动轴</title>
+		<style>
+		*{margin:0;padding:0;}
+		body{background:rgb(26,0,0);color:#fff;}
+		#wrap{/*overflow:hidden;*/ height:650px;border:3px solid #fff; position:absolute; margin-right:40px;}
+		#scrollbar{width:15px;height:650px;border:1px solid black;background: rgb(12,0,0);float:right;}
+		#fly{width:15px;height:120px;background-color:rgb(192,192,192);border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;position:absolute;/* top:20px; */}
+		#center{padding:60px;margin-left:120px;}
+		.display{width:200px;height:200px;display:inline-block;margin:10px;background:red;margin-left:40px;text-align:center;line-height:40px;}
+		.buttom{width:95%;height:300px;background:rgb(234,45,57);margin:20px;}
+		#left{width:120px;height:300px;background:rgb(234,45,57);float:left; margin:10px;text-align:center;line-height:80px;filter:alpha(opacity:0);opacity:0;position:fixed;}
+		</style>
+	</head>
+	<body>
+	    <div id='scrollbar'>
+		    	<div id='fly'></div>
+		</div>
+	   <div id='wrap'>
+	       
+		    <div id='left'>1<h3>简介</h3></div>
+		    <div id='center'>
+		    <h1>WINNER 姜胜允</h1>
+		    <p>2013年，YG娱乐社长梁铉锡表示姜胜允与其他练习生组队A队并和B队于“WIN:WHOISNEXT”节目中互相竞争，以网络投票的方式分出胜负，胜出的队伍会以WINNER为名的组合身份出道；节目期间成员宋闵浩于节目初被选为A队队长，后因练舞时扭伤脚踝，转由姜胜允任队长 。2013年7月16日以单曲《下雨了》solo出道，单曲推出不到24小时，占据韩国九大音乐排行榜的一位；7月31日发表首支摇滚风味的主打歌《WildAndYoung》；8月4日于SBS人气歌谣以《WildAndYoung》首次登台演出；8月14日发表另一支单曲《心贼》2013年10月25日，于生存节目《WIN:WHOISNEXT》中，姜胜允所在的A组取得最终的胜利，获得出道的资格，并约定于2014年以WINNER的组合名正式出道；12月13日，WINNER首支真人秀节目《winner tv》通过Mnet首播  。2014年8月12日，WINNER组合于凌晨0:00释放首张正规专辑《2014S/S》的在线音源；14日，正式出售专辑  ；8月15日，在YGFamliy演唱会上演唱《Empty》首次登台；8月17日，在SBS《人气歌谣》完成出道舞台正式出道  ；9月10日，组合发行专辑《2014S/S-JapanCollection》在日本出道，11日开始日本巡演。2015年5月23日，姜胜允客串KBS电视剧《制作人》；6月29日，携手Sandara出演网络剧《我们分手了》，剧中饰演为了乐队和音乐而孤军奋斗的地下乐队主唱，该剧仅2周的时间播放量就突破了500万次，之后一个月的时间播放量突破了1300万次，认证了该剧超高的人气。 7月31日，姜胜允通过《我们分手了》中的出色表演获得韩国首届"KWEB FEST 2015"网络剧电影节最佳男演员奖  。8月17日，姜胜允和《我们分手了》剧组一起在弘大的Rolling Hall举行《我们分手了》播放量突破1000万的THANK YOU EVENT公演 。</p>
+		    <p>2013年，YG娱乐社长梁铉锡表示姜胜允与其他练习生组队A队并和B队于“WIN:WHOISNEXT”节目中互相竞争，以网络投票的方式分出胜负，胜出的队伍会以WINNER为名的组合身份出道；节目期间成员宋闵浩于节目初被选为A队队长，后因练舞时扭伤脚踝，转由姜胜允任队长 。2013年7月16日以单曲《下雨了》solo出道，单曲推出不到24小时，占据韩国九大音乐排行榜的一位；7月31日发表首支摇滚风味的主打歌《WildAndYoung》；8月4日于SBS人气歌谣以《WildAndYoung》首次登台演出；8月14日发表另一支单曲《心贼》2013年10月25日，于生存节目《WIN:WHOISNEXT》中，姜胜允所在的A组取得最终的胜利，获得出道的资格，并约定于2014年以WINNER的组合名正式出道；12月13日，WINNER首支真人秀节目《winner tv》通过Mnet首播  。2014年8月12日，WINNER组合于凌晨0:00释放首张正规专辑《2014S/S》的在线音源；14日，正式出售专辑  ；8月15日，在YGFamliy演唱会上演唱《Empty》首次登台；8月17日，在SBS《人气歌谣》完成出道舞台正式出道  ；9月10日，组合发行专辑《2014S/S-JapanCollection》在日本出道，11日开始日本巡演。2015年5月23日，姜胜允客串KBS电视剧《制作人》；6月29日，携手Sandara出演网络剧《我们分手了》，剧中饰演为了乐队和音乐而孤军奋斗的地下乐队主唱，该剧仅2周的时间播放量就突破了500万次，之后一个月的时间播放量突破了1300万次，认证了该剧超高的人气。 7月31日，姜胜允通过《我们分手了》中的出色表演获得韩国首届"KWEB FEST 2015"网络剧电影节最佳男演员奖  。8月17日，姜胜允和《我们分手了》剧组一起在弘大的Rolling Hall举行《我们分手了》播放量突破1000万的THANK YOU EVENT公演 。</p>
+		    <p>2013年，YG娱乐社长梁铉锡表示姜胜允与其他练习生组队A队并和B队于“WIN:WHOISNEXT”节目中互相竞争，以网络投票的方式分出胜负，胜出的队伍会以WINNER为名的组合身份出道；节目期间成员宋闵浩于节目初被选为A队队长，后因练舞时扭伤脚踝，转由姜胜允任队长 。</p>
+		    </div>
+		    <div id='model'>
+				<div class='display'>1<h3>活动经历</h3></div>
+			    <div class='display'>2<h3>家庭信息</h3></div>
+			    <div class='display'>3<h3>教育经历</h3></div>
+			    <div class='display'>4<h3>获奖经历</h3></div>
+		    <div class='buttom'>btm</div>
+		</div>				    
+		</div>
+		    
+		<script>
+			window.onload=function(){
+				var bar=document.getElementById('fly');
+				var scrollbar=document.getElementById('scrollbar');
+				var d_y=0;
+				var left=document.getElementById('left');
+				var wrap=document.getElementById('wrap');
+				scrollbar.onmousedown=function(evt){
+					//console.log('down');
+                     var e=evt||window.event;
+                     var d_y=e.clientY-bar.offsetTop;
+                     //console.log('y距离:'+d_y);
+                     scrollbar.onmousemove=function(evt){
+                     	var e=evt||window.event;
+                     	var top=e.clientY-d_y;             
+                     	//console.log('top:'+top);
+                     	if(top<scrollbar.offsetTop){
+                     		top=scrollbar.offsetTop;
+                     	}
+                     	if(top>scrollbar.offsetHeight-bar.offsetHeight){
+                     		top=scrollbar.offsetHeight-bar.offsetHeight;
+                     	}
+                     	bar.style.top=top+'px';
+                     	var scale=top/(scrollbar.offsetHeight-bar.offsetHeight);
+                     	left.style.filter='alpha(opacity='+(scale*100)+')';
+                     	console.log(scale);
+                     	left.style.opacity=scale;
+                     	wrap.style.top=-(scale*(scrollbar.offsetHeight-bar.offsetHeight))+'px';
+                     	//console.log(bar.offsetTop);
+                     }
+                    scrollbar.onmouseup=function(){
+                     	scrollbar.onmousemove=null;
+                     	scrollbar.onmouseup=null;
+                     	//console.log('up');
+                     } 
+                     return false;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>链式运动</title>
+		<style style='text/css'>
+           #div{width:50px;height:50px;background-color:rgba(255,123,35,0.5);}
+		</style>
+	</head>
+	<body>
+	    <div id='div'>变宽变高</div>
+		<script>
+        window.onload=function(){
+            var odiv=document.getElementById('div');
+            odiv.timer=null;
+            odiv.onmouseover=function(){
+                move(odiv,'width',150,function(){
+                    move(odiv,'height',200);
+                });
+            };
+            odiv.onmouseout=function(){
+                move(odiv,'height',50,function(){
+                    move(odiv,'width',50);
+                });
+            };
+        }
+            function getStyle(obj,attr){
+            	if(obj.currentStyle){
+            		return obj.currentStyle[attr];
+            	}else{
+            		return getComputedStyle(obj,null)[attr];
+            	}           	
+            }
+            function move(obj,attr,iTarget,fnEnd){
+                clearInterval(obj.timer);
+                obj.timer=setInterval(function(){
+                    var cur=0;
+                    if(attr=='opacity'){
+                        cur=parseInt(parseFloat(getStyle(obj,attr))*100);
+                    }else{
+                        cur=parseInt(getStyle(obj,attr));
+                    }
+                    var speed=(iTarget-cur)/7;
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                    if(cur==iTarget){
+                        clearInterval(obj.timer);
+                        if(fnEnd) fnEnd();
+                    }else{
+                        if(attr=='opacity'){
+                            obj.style.filter='alpha(opacity='+(cur+speed)+')';
+                            obj.style.opacity=(cur+speed)/100;
+                        }else{
+                            obj.style[attr]=cur+speed+'px';
+                        }
+                    }
+                },0);
+            }
+		</script>
+	</body>
+</html>

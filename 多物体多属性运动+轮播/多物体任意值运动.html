@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>多物体任意值运动</title>
+		<style style='text/css'>
+           .div{width:200px;height:200px;background-color:red;float:left;margin:10px;border:50px solid gray;}
+           #opacity{/* filter:alpha(opacity=100);opacity:1; */background-color:rgba(255,0,255,0.4)}
+		</style>
+	</head>
+	<body>
+	    <div class='div'>变宽</div>
+	    <div class='div'>变高</div>
+	    <div class='div'>字体放大</div>
+        <div class='div' id="opacity">透明度</div>
+		<script>
+           window.onload=function(){
+            var divs=document.getElementsByTagName('div');
+            for(var i=0;i<divs.length;i++){
+                divs[i].timer=null;
+            }
+            divs[0].onmouseover=function(){
+                    change(this,'width',300);
+                }
+            divs[0].onmouseout=function(){
+                    change(this,'width',200);
+                }
+            divs[1].onmouseover=function(){
+                    change(this,'height',300);
+                }
+            divs[1].onmouseout=function(){
+                    change(this,'height',200);
+                }
+            divs[2].onmouseover=function(){
+                    change(this,'fontSize',32);
+                }
+            divs[2].onmouseout=function(){
+                    change(this,'fontSize',12);
+               }
+            divs[3].onmouseover=function(){
+                    change(this,'opacity',80);
+                }
+            divs[3].onmouseout=function(){
+                    change(this,'opacity',90);
+               }   
+           }
+            function getStyle(obj,name){
+            	if(obj.currentStyle){
+            		return obj.currentStyle[name];
+            	}else{
+            		return getComputedStyle(obj,null)[name];
+            	}
+            	//retuen (obj.currentStyle?obj.currentStyle:getComputedStyle(obj,null))[name]
+            	
+            }
+            function change(obj,attr,target){
+                clearInterval(obj.timer); 
+                obj.timer=setInterval(function(){
+                    var cur=0;
+                    if(attr=='opacity'){
+                        cur=parseInt(parseFloat(getStyle(obj,attr))*100);
+                    }else{
+                        cur=parseInt(getStyle(obj,attr));
+                    }
+                    var speed=(target-cur)/7;
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                    if(cur==target){
+                        clearInterval(obj.timer);
+                    }else{
+                        if(attr=='opacity'){
+                            obj.style.filter='alpha(opacity='+(cur+speed)+')';//opacity=也是可以的。
+                            obj.style.opacity=(cur+speed)/100;
+                        }else{
+                            obj.style[attr]=cur+speed+'px';
+                        }
+                        
+                    }
+                },30);
+            }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<title>老鹰抓小鸡</title>
+		<style>
+		div{height:30px;width:30px;background-image:url(ksy2.jpg);background-repeat:no-repeat;background-size:cover;position:absolute;}
+		</style>
+	</head>
+	<body>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+		<script>
+		//关键是div的样式要设成positiion:absolute;遍历从后向前，clientX是可视区鼠标坐标，这里应当再加上scrollLeft,y坐标同理。
+			window.onload=function(){
+				document.onmousemove=function(evt){
+				var e=evt||window.event;
+				var oDivs=document.getElementsByTagName('div');
+				for(var i=oDivs.length-1;i>0;i--){
+					oDivs[i].style.left=oDivs[i-1].offsetLeft+'px';
+					oDivs[i].style.top=oDivs[i-1].offsetTop+'px';
+				}
+				oDivs[0].style.left=getPos(e).x+5+'px';
+				oDivs[0].style.top=getPos(e).y+5+'px';
+			 }
+			 document.onmousedown=function(){
+			 	document.onmousemove=null;
+			 }
+			 	function getPos(evt){
+					var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+					var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+					return {x:scrollLeft+evt.clientX,y:scrollTop+evt.clientY}
+			}
+		};
+		</script>
+	</body>
+</html>

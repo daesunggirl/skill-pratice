@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>多物体多属性运动，图片轮播</title>
+		<style style='text/css'>
+           #share-content{width:150px;height:200px;background-color:green;position:absolute;left:-150px;}
+           #share{width:20px;height:60px;line-height:20px;position:absolute;right:-20px;top:70px;background-color: gray;}
+           .div{position:relative;top:210px;width:200px;height:50px;margin-bottom:5px;background-color:red;border:;}
+		</style>
+	</head>
+	<body>
+	    <div id='share-content'>分享内容<span id='share'>分享</span></div>
+	    <div class='div'>1</div>
+	    <div class='div'>2</div>
+	    <div class='div'>3</div>
+		<script>
+			
+			/*shareContent.onmouseover=function(){
+				shareContent.style.left=0+'px';
+				console.log(1);
+			}
+            shareContent.onmouseout=function(){
+            	shareContent.style.left=-150+'px';
+            }
+            console.log(2);*/
+            window.onload=function(){
+			    var shareContent=document.getElementById('share-content');
+			    shareContent.onmouseover=function(){
+			    	startMove(0);
+			    }
+			    shareContent.onmouseout=function(){
+                    startMove(-150);
+			    }
+			    var divs=document.getElementsByClassName('div');
+			    for(var i=0;i<divs.length;i++){
+			    	divs[i].timer=null;
+			    	divs[i].alpha=30;
+			    	divs[i].onmouseover=function(){
+			    		changeOpacity(this,100);
+			    	}
+			    	divs[i].onmouseout=function(){
+			    		changeOpacity(this,30);
+			    	}
+			    }
+            }
+            //var timer=null;
+            function startMove(target){
+            	var speed=0;
+            	var shareContent=document.getElementById('share-content');
+            	clearInterval(timer);
+            	timer=setInterval(function(){
+            		if(shareContent.offsetLeft<target){
+            			speed=10;
+            		}else if(shareContent.offsetLeft>target){
+            			speed=-10;
+            		}
+            		if(Math.abs(target-shareContent.offsetLeft)<10){
+            			clearInterval(timer);
+            			shareContent.offsetLeft=target;
+            		}else{
+            			shareContent.style.left=shareContent.offsetLeft+speed+'px';
+            		}
+            	},30);
+            }
+            function getStyle(obj,name){
+            	if(obj.currentStyle){
+            		return obj.currentStyle[name];
+            	}else{
+            		return getComputedStyle(obj,null)[name];
+            	}
+            	//retuen (obj.currentStyle?obj.currentStyle:getComputedStyle(obj,null))[name]
+            	
+            }
+            function changeOpacity(obj,target){
+                   
+            	clearInterval(obj.timer);
+            	obj.timer=setInterval(function(){
+            		var speed=(target-obj.alpha)/6//缓冲效果
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);//防止速度为小数，没有到就停了
+            		if(obj.alpha==target){
+            			clearInterval(obj.timer);
+            		}else{
+            			obj.alpha+=speed;
+            			obj.style.filter='alpha(opacity:'+obj.alpha+')';
+            			obj.style.opacity=obj.alpha/100;
+            		}
+            	},30);
+            }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>图片拖曳</title>
+		<style>
+		  #wrap{width:650px;height:650px;background-color:rgba(135,67,67,0.5);padding:10px;position:relative;}
+		  #wrap div{width:200px;height:200px;position:absolute;background:rgb(195,153,85);padding:10px;}
+		</style>
+	</head>
+	<body>
+	    <div id='wrap'>
+	    	<p>我不管，姜胜允南韩第一可爱</p>
+		    <div id='block'>拖我呀，拖的动我的都是颜值top级别的</div>
+	    </div>
+		<script>
+		  //先计算出固定的水平方向和垂直方向距离，用mousemove时的鼠标位置减去这个距离得出div的新位置
+		  //mousemove必需放在mousedown里面，不然有问题。且为防止鼠标脱离物体没反应把事件绑定在document上
+		  
+			/*window.onload=function(){
+				var block=document.getElementById('block');
+				document.onmousedown=function(evt){
+					var e=evt||window.event;
+					var d_x=e.clientX-block.offsetLeft;//此处不能加px因为后面要进行计算
+					var d_y=e.clientY-block.offsetTop;//注意这里的clientX和clientY和下面的值并不一样
+					console.log(d_x);                     
+					document.onmousemove=function(evt){   
+                        var e=evt||window.event;
+						block.style.left=e.clientX-d_x+'px';
+						console.log(e.clientX+'----'+d_x+'---'+e.clientY+'---'+d_y);
+						console.log(block.style.left);
+						block.style.top=e.clientY-d_y+'px';
+					}
+					return false;	//ff,chrome，拖曳时会被文字选中，所以取消默认行为
+					}
+					document.onmouseup=function(){
+					 document.onmousemove=null;
+					 document.onmouseuo=null;
+				}
+				
+			}*/
+
+			//使它拖曳范围在可视区，要点，left的定义及判断，易错点：带px单位时不能用来比较
+			//磁性吸附：比如当left<50时，另left=0，top同理。
+			/*window.onload=function(){
+				var block=document.getElementById('block');
+				document.onmousedown=function(evt){
+					var e=evt||window.event;
+					var d_x=e.clientX-block.offsetLeft;//此处不能加px因为后面要进行计算
+					var d_y=e.clientY-block.offsetTop;//注意这里的clientX和clientY和下面的值并不一样
+					console.log(d_x);                     
+					document.onmousemove=function(evt){   
+                        var e=evt||window.event;
+						var left=e.clientX-d_x;
+						console.log(left) 
+						var top=e.clientY-d_y;
+						var maxLeft=document.documentElement.clientWidth-block.offsetWidth;
+						var maxTop=document.documentElement.clientHeight-block.offsetHeight;
+						if(left<0){
+							left=0;
+						}
+						if(left>maxLeft){
+							left=maxLeft;
+						}
+						if(top<0){
+							top=0;
+						}
+						if(top>maxTop){
+							top=maxTop;
+						}
+						block.style.left=left+'px';
+						block.style.top=top+'px';
+					}
+					document.onmouseup=function(){
+					   document.onmousemove=null;
+					   document.onmouseuo=null;
+				    }	  
+					return false;	//ff,chrome，拖曳时会被文字选中，所以取消默认行为
+				}					
+			}*/
+			//限定只能在某个框里拖拽
+			/*window.onload=function(){
+				var range=document.getElementById('wrap');
+				var block=document.getElementById('block');
+				document.onmousedown=function(evt){
+					var e=evt||window.event;
+					var d_x=e.clientX-block.offsetLeft;//此处不能加px因为后面要进行计算
+					var d_y=e.clientY-block.offsetTop;//注意这里的clientX和clientY和下面的值并不一样
+					//console.log(d_x);                     
+					document.onmousemove=function(evt){   
+                        var e=evt||window.event;
+						var left=e.clientX-d_x;
+						//console.log(left) 
+						var top=e.clientY-d_y;
+						var maxLeft=range.offsetWidth-block.offsetWidth;
+						var maxTop=range.offsetHeight-block.offsetHeight;
+						if(left<range.offsetLeft){
+							left=0;
+						}
+						if(left>maxLeft){
+							left=maxLeft;
+						}
+						if(top<range.offsetTop){
+							top=0;
+						}
+						if(top>maxTop){
+							top=maxTop;
+						}
+						block.style.left=left+'px';
+						block.style.top=top+'px';
+					}
+					document.onmouseup=function(){
+					   document.onmousemove=null;
+					   document.onmouseuo=null;
+				    }	  
+				        return false;//ff,chrome，拖曳时会被文字选中，所以取消默认行为
+				}	
+			  }*/	
+			  //兼容ie未缩减版
+			 window.onload=function(){
+				var range=document.getElementById('wrap');
+				var block=document.getElementById('block');
+				document.onmousedown=function(evt){
+					var e=evt||window.event;
+					var d_x=e.clientX-block.offsetLeft;//此处不能加px因为后面要进行计算
+					var d_y=e.clientY-block.offsetTop;//注意这里的clientX和clientY和下面的值并不一样
+					//console.log(d_x); 
+					if(block.setCapture){                    
+					block.onmousemove=function(evt){   
+                        var e=evt||window.event;
+						var left=e.clientX-d_x;
+						//console.log(left) 
+						var top=e.clientY-d_y;
+						var maxLeft=range.offsetWidth-block.offsetWidth;
+						var maxTop=range.offsetHeight-block.offsetHeight;
+						if(left<range.offsetLeft){
+							left=0;
+						}
+						if(left>maxLeft){
+							left=maxLeft;
+						}
+						if(top<range.offsetTop){
+							top=0;
+						}
+						if(top>maxTop){
+							top=maxTop;
+						}
+						block.style.left=left+'px';
+						block.style.top=top+'px';
+					}
+					block.onmouseup=function(){
+					   block.onmousemove=null;
+					   block.onmouseup=null;
+					   block.releaseCapture();
+				    }	  
+				    block.setCapture()
+				 }else{
+				 	  document.onmousemove=function(evt){   
+                        var e=evt||window.event;
+						var left=e.clientX-d_x;
+						//console.log(left) 
+						var top=e.clientY-d_y;
+						var maxLeft=range.offsetWidth-block.offsetWidth;
+						var maxTop=range.offsetHeight-block.offsetHeight;
+						if(left<range.offsetLeft){
+							left=0;
+						}
+						if(left>maxLeft){
+							left=maxLeft;
+						}
+						if(top<range.offsetTop){
+							top=0;
+						}
+						if(top>maxTop){
+							top=maxTop;
+						}
+						block.style.left=left+'px';
+						block.style.top=top+'px';
+					}
+					document.onmouseup=function(){
+					   document.onmousemove=null;
+					   document.onmouseuo=null;
+				    }	  
+				 }
+				 return false;
+				}	
+			  }
+		</script>
+	</body>
+</html>
