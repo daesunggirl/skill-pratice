@@ -5,7 +5,7 @@
 		<title>多物体多属性运动，图片轮播</title>
 		<style style='text/css'>
            #share-content{width:150px;height:200px;background-color:green;position:absolute;left:-150px;}
-           #share{width:20px;height:60px;line-height:20px;position:absolute;right:-20px;top:70px;background-color: gray;}
+           #share{width:20px;height:60px;position:absolute;right:-20px;top:70px;background-color: gray;}
            .div{position:relative;top:210px;width:200px;height:50px;margin-bottom:5px;background-color:red;border:;}
 		</style>
 	</head>
@@ -44,12 +44,12 @@
 			    	}
 			    }
             }
-            //var timer=null;
+           
             function startMove(target){
             	var speed=0;
             	var shareContent=document.getElementById('share-content');
             	clearInterval(timer);
-            	timer=setInterval(function(){
+            	var timer=setInterval(function(){
             		if(shareContent.offsetLeft<target){
             			speed=10;
             		}else if(shareContent.offsetLeft>target){

@@ -10,7 +10,7 @@
      		#play{width:2600px;position:absolute;}
      		#play li{width:520px;height:280px;float:left;list-style:none;}
      		#index{position:absolute;bottom:10px;width:520px;text-align:center;}
-     		#index li{display:inline-block;width:10px;height:10px;border:1px solid gray; border-radius:50%; -webkit-border-radius:50%;-moz-border-radius:50%;}
+     		#index li{display:inline-block;width:10px;height:10px;border:1px solid gray; border-radius:50%; -webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;}
      		.now{background:rgba(22,120,123,0.5);}
 		</style>
 	</head>
@@ -51,7 +51,7 @@
 		     		      lis[i].className='';
 		     	      }
 		     	      lis[now].className='now';
-		     	     move(play,{left:-520*now});
+		     	     move(play,{"left":-(520*now)});
                 	}
               function	next(){
               	now++;
@@ -60,12 +60,12 @@
               	}
               	tab();
               }
-              var timer=setInterval(next,3000);
-              container.onmouseover=function(){
+              var timer=setInterval(next,4000);
+              play.onmouseover=function(){
               	clearInterval(timer);
               };
-              container.onmouseout=function(){
-              	timer=setInterval(next,3000);
+              play.onmouseout=function(){
+              	timer=setInterval(next,4000);
               };
 		     }
 		</script>

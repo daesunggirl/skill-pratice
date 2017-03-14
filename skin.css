@@ -1,0 +1,191 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, 
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+ol, ul {
+  list-style: none;
+}
+a{text-decoration:none;}
+body{background:rgb(119,56,49);}
+nav{
+	background:rgb(29,20,28);
+	text-align:center;
+	height:40px;
+	line-height:40px;
+}
+nav ul li{
+	float:left;
+	list-style:none;
+}
+ nav ul li:hover a{
+ 	background:gray;
+ 	color:red;
+ }
+ nav ul li a{
+ 	text-decoration:none;
+ 	width:90px;
+ 	color:#fff;
+ 	display:block;
+ }
+ nav ul li ul{
+ 	display:none;
+ 	position:absolute;
+ 	z-index:10;
+ }
+ nav .arrow{margin-left:6px;}
+ nav ul li:hover ul {
+ 	display:block;width:90px
+ 	;}
+ nav ul li:hover a{
+ 	color:#fff;
+ }
+ nav ul li ul li{
+ 	position:relative;
+ }
+ nav ul li ul li ul{
+ 	display:none;
+ }
+ ul li:hover ul li ul{display:none;}
+ nav ul li ul li:hover ul{
+ 	display:block;
+ 	position:absolute;
+ 	left:90px;top:15px;
+ }
+ nav ul li ul li:hover ul a{
+ 	background:#dac;
+ }
+ nav:before,nav:after{content:'';display:table;}
+ nav:after{clear:both;}
+ #left{float:left;margin-left:100px;}
+ #right{float:right;}
+/*轮播*/
+ #container{
+ 	position:relative;
+ 	width:1200px;
+ 	overflow:hidden;
+ 	height:400px;
+ 	margin:10px auto;
+ }
+ #play{
+ 	width:4800px;
+ 	position:absolute;
+ }
+ #play li{
+ 	width:1200px;
+ 	height:400px;
+ 	float:left;
+ 	list-style:none;
+ }
+ #index{
+ 	position:absolute;
+ 	bottom:10px;
+ 	right:20px;
+ }
+ #index li{
+ 	display:inline-block;
+ 	width:12px;
+ 	height:12px;
+ 	border:1px solid gray;
+ 	border-radius:50%;
+ 	-webkit-border-radius:50%;
+ 	-moz-border-radius:50%;
+ 	-ms-border-radius:50%;
+ 	}
+ .now{background:rgba(22,120,156,0.5);}
+  #login{
+	width:300px;
+	height:320px;
+	margin:10px auto;
+	border:1px solid #ccc;	
+	display:none;
+	position:fixed;
+	z-index:1001;
+	background:#fff;
+}
+.login_top{
+	height:40px;
+	line-height:40px;
+	/*background:#eee;*/
+	background:url(img/百度2.png);
+	background-repeat:no-repeat;
+	background-size:10%;
+	background-position:10px;
+	text-indent:20px;
+	background-color:#eee;
+
+}
+#login-close{
+	display:block;
+	position:absolute;
+	top:10px;
+	right:5px;
+	width:16px;
+	height:16px;
+	background-image:url(img/close.png);
+	cursor:pointer;
+}
+#login .same1{
+	display:inline-block;
+	height:36px;
+	margin:5px 3px;
+}
+#login .same2{
+	width:280px;
+	text-indent:40px;
+	border:1px solid #ccc;
+	margin:20px 5px 20px 5px;
+}
+#login .special_user{
+	background-image:url(img/user.png);
+	background-repeat:no-repeat;
+}
+#login .special_pwd{
+	background-image:url(img/lock-o.png);
+	background-repeat:no-repeat;
+
+}
+.button_l{
+	display:block;
+	border:none;
+	border-radius:5px;
+	height:36px;
+	width:290px;
+	margin:auto;
+	background:#3e7ef3;
+	color:#fff;
+}
+#login span{
+	display:inline-block;
+}
+#warn_txt{
+	border:1px solid orange;
+	background:orange;
+	font-style:italic;
+	display:none;
+}
+#mask{
+	background-color:rgb(105,72,56);
+	opacity:0.5;
+	filter: alpha(opacity=50); 
+	opacity:0.5;
+	position:absolute; 
+	left:0;
+	top:0;
+	z-index:1000;
+}

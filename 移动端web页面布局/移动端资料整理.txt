@@ -1,0 +1,11 @@
+移动端资料整理
+1.移动WEB开发入门:
+    http://junmer.github.io/mobile-dev-get-started/#/
+2.移动前端不得不了解的html5 head 头标签
+    http://www.css88.com/archives/5480
+3.移动开发资源集合
+    https://github.com/jtyjty99999/mobileTech
+4.MDN:手机网页开发
+    https://developer.mozilla.org/zh-CN/docs/Web/Guide/Mobile
+5.w3cplus响应式技术资源
+    http://www.w3cplus.com/responsive

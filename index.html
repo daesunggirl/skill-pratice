@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pratice</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="skin.css">	
+</head>
+	<body>
+	    <nav>
+	    	<ul id="left">
+	    		<li class='nav-top'><a href="" >首页</a></li>
+	    		<li class='nav-top'><a href="">路径</a>
+		    		    <ul class="second">
+		    		    	<li class="nav-second"><a href="">前端开发<span class='arrow'>></span></a>
+		    		    	     <ul class="third">
+		    		    	     	<li><a href="">javascript</a></li>
+		    		    	     	<li><a href="">html/css</a></li>
+		    		    	     	<li><a href="">jQuery</a></li>
+		    		    	     </ul>
+		    		    	</li>     
+		    		    	<li class="nav-second"><a href="">后端开发</a></li>
+		    		    	<li class="nav-second"><a href="">数据库开发</a></li>
+		    		    </ul>
+	    		 </li>
+	    		<li class='nav-top'><a href="">实战</a></li>
+	    		<li class='nav-top'><a href="">手记</a></li>
+	    	</ul>
+	    	<ul id="right">
+	    		<li id='login-li'><a href="">登陆</a></li>
+	    		<li><a href="">注册</a></li>
+	    		<li><a href="" id='skin'>一键换肤</a></li>
+	    	</ul>
+	    </nav>
+	    <section id='container'>
+	    <ul id='play'>
+	    	<li><a href=""><img src="http://img.imooc.com/5823e7ed0001478412000460.jpg" alt="广告1"></a></li>
+	    	<li><a href=""><img src="http://img.imooc.com/5823e892000114e812000460.jpg"alt="广告2"></a></li>
+	    	<li><a href=""><img src="http://img.imooc.com/5823e9340001028812000460.jpg" alt="广告3"></a></li>
+	    	<li><a href=""><img src="http://img.imooc.com/5823e980000181f012000460.jpg" alt="广告4"></a></li>
+	    </ul>
+	    <ul id='index'>
+	    	<li></li>
+	    	<li></li>
+	    	<li></li>
+	    	<li></li>
+	    </ul>
+	    </section>
+	    <section id="login">
+		<div class="login_top">
+		    <span id="login_title"><strong>百度账号登录</strong></span>
+		    <span id='login-close'></span>
+		</div>
+		<form action="">
+			<input type="text" name="txt" class="same1 same2 special_user" placeholder="手机/用户名/邮箱"/>
+			<input type="password" name="pwd" class="same1 same2 special_pwd" placeholder="密码" />
+			<p id="warn"><input type="radio" name="radio" class="same1" /><span>记住密码</span></p>
+			<div id="warn_txt">注意信息安全，网吧等场所不要点击记住密码</div>
+			<input type="button" name="button2" value="登录" class="same1 button_l"/>
+		</form>
+	   </section>
+		<script src="script/jquery-3.1.1.js"></script>
+		<script src='script/move.js'></script>
+		<script>
+			$(function(){
+				$('nav a').hover(function(){
+					$(this).stop().animate({width:"100"},200);
+				},function(){
+					$(this).stop().animate({width:"90"},200);
+				})
+			})
+		</script>
+		<script src='script.js'></script>
+	</body>
+</html>

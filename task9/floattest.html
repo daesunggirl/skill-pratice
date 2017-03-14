@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8"/>
+	    <title>test</title>
+	    <style>
+	    *{padding:0;margin:0;}
+             .head{
+             	width:100;
+             	height:30px;
+             	background:blue;
+             }
+             .left{
+             	width:250px;
+             	/* height:600px; */
+                background:red;
+                color:#fff;
+                margin-bottom:-3000px;
+                padding-bottom:3000px;
+             }
+             .left-float{
+             	float:left;
+             }
+             .clearfix:before,.clearfix:after{
+             	content:"";
+             	display:block;
+             	height:0;
+
+         }
+	         .clearfix:after{
+	         	clear:both;
+	         }
+	         .clear{
+	         	clear:both;
+	         }
+	         .main{
+	         	width:300px;
+	         	height:600px;
+	         	border:2px solid green;
+	         	background:orange;
+	             
+	         }
+             .mid{background:yellow;}
+             .right-float{float:right;}
+             .footer{
+             	height:50px;
+             	width:100%;
+             	background:#111;
+             }
+             .left-position{
+             	position:absolute;
+             	top:0px;
+             	bottom:0px;
+             }
+             .body div{display:inline-block;margin-left:0px;}
+             .body{width:1000px;border:1px solid green;margin:auto;overflow:hidden}
+
+	    </style>
+</head>
+<body>
+	<div class="head">头部</div>
+	<div class="body">
+	        <div class="left">1</div>
+	       	<div class="main">2</div>
+	        <div class="mid  ">3</div>  	
+	</div>
+	<div class="footer"></div>
+</body>
+</html>
