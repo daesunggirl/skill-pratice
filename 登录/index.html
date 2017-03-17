@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>introduce</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+	    <div>
+			<div class="login">
+				<div class="title">
+					<span>登录 |</span><span> 注册</span>
+					<img src="CLOSE.png" alt="图片加载失败">
+				</div>
+				<form action="" class="fm">
+				    <div>
+				    	<span>用户名</span>
+				    	<input type="text" name="user-n" placeholder="手机|邮箱|用户名" class='us'>
+				    </div>
+					<div>
+						<span>密 码</span>
+						<input type="password" name='psw' class='pw'>
+					</div>
+					<div>
+						<input type="radio">
+						<span>记住密码</span>
+						<span id='forget'>忘记密码</span>
+					</div>
+					<div class='btn-lg'>
+						<span class='lg'>登录</span>
+					</div>
+				</form>
+				<div class="other">
+					<p>其他登录方式</p>
+					<img src="arrow_thick_thin_down.png" alt="" class="down" id="down">
+				</div>
+				<div class="third" id="third" >
+					<img src="sina.png" alt="图片加载失败">
+					<img src="qq.png" alt="图片加载失败">
+					<img src="wechat.png" alt="图片加载失败">
+					<div>
+						<span>扫码登录</span>|<span>一键登录</span>|<span> 指纹登录</span>|<span>人脸识别</span>
+					</div>
+				</div>
+			</div>
+			<div class='find'>
+				<div class="find-title">
+				     <span>返回</span>
+				     <span class='find-text'>找回密码</span>
+				     <img src="CLOSE.png" alt="" />
+				</div>
+				<div class="find-cont">
+					<input type="text" placeholder="请输入绑定的手机或邮箱" />
+					<input type="button" value="立即验证">
+					<input type="button" value="重新发送">
+					<input type="button" value="收不到验证码">
+				</div>
+				<div class="find-cont">
+					<input type="text" placeholder="请输入新密码" class="new-pw">
+					<input type="text" placeholder="请重复输入" class="new-pw">
+					<button>现在登录</button>
+					<button>返回</button>
+				</div>
+		      </div>
+		</div>
+		<div class="inner">
+			<div class="head">导航条</div>
+			<div class="a">
+				<div class="left">侧栏</div>
+				<div class="right">右边栏</div>
+				<div class="center">
+				内容栏
+				<ul class="menu">
+					<li class="news">
+					    <a href=""><span class="">消息</span></a>
+					    <ul style="display:none" class="">
+					    	<li>系统消息</li>
+					    	<li>验证消息</li>
+					    	<li>好友消息</li>
+					    </ul>
+					</li>
+				</ul>
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				</div>
+			</div>
+		</div>
+		<div class="discribe">
+			<p><h2>【1】图片验证，滚动条验证</h2>对于隐私方面要求比较高的产品，登录时IP，常用登录地异常时开启</p>
+			<p><h2>【2】用户操作错误时的提示</h2>1，当用户还没有填写登录信息就按了登录按钮时，弹窗提示"您好，信息没有填写完整，请先登录"。<br/>2，用户名，密码输入后台验证账号是否存在，a.账户存在错误，提示输入有误，并把边框改成警示色，如红色，或者抖动已引起用户注意。b.账户不存在时，提示无此账号，请重新输入或立即注册。<br/>
+			</p>
+			<p><h2>【3】记住密码</h2>1，对于社交类产品，记住密码勾选时提示，不要在公共场合如网吧时勾选此项，以防账号被盗.<br/>2.对于金融类涉及财产安全的产品，取消记住密码选项，以防不必要的纠纷<br/>3.其他类，凭用户自愿勾选</p>
+			<p><h2>【4】忘记密码</h2>1.对于支付类，涉及金额等重要信息产品，限制输入的次数。<br/>a.5次以内正确，进入系统内游客模式，等待第二次验证<br/>b.5次以内不正确，但选择找回密码，进入找回密码页<br/>c.5次都不正确，提示三小时后再尝试<br/>
+			</p>
+			<p><h2>【5】找回密码</h2>找回密码可通过绑定的手机号找回或者邮箱找回，手机发送验证码后，1.收的到验证码且正确，进入新密码设置栏，否则新密码设置栏不可编辑<br/>2.收不到验证码，用户可选择绑定新手机或者选择其他找回方式，如邮箱找回，对于社交类软件还可通过最近去过的地方问题回答找回，或者通过辨认好友信息找回<br/>3.新密码设置完成后，可直接在本页点击新密码登录，直接登录进系统，也可选择返回或退出</p>
+			<p><h2>【6】其他登录方式</h2>1.点击向下展开按钮，用户已绑定第三方软件时可通过账号/密码/扫码等方式登录。若没有绑定，可根据业务需求，引导用户绑定，进入绑定信息页面。<br/>2.一键登录，通过手机号/验证码登录，若没有绑定，引导用户进入绑定页。<br/>3.操作成功后进入系统，等待第二次人工验证。
+			</p>
+			<p><h2>【7】人工验证</h2>登录成功后进入系统页，此时为游客模式，当用户要使用功能时比如查看更多等，引导用户进行人工验证，进度消息在首页实时更新。</p>
+		</div>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+			  $("#down").click(function(){
+			   /* $("#third").fadeToggle("slow");*/
+			   $('#down').attr('src','arrow_thick.png'),
+			    $("#third").animate({height:'90px'});
+			  });
+			});
+		</script>
+	</body>
+</html>
